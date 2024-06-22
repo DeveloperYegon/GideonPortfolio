@@ -10,8 +10,23 @@ import { FaPinterestSquare } from "react-icons/fa";
 
 function Contact() {
   return (
-    <div className='mt-20 h-full bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% '>
-      <div className='border border-slate-900 w-1/2 rounded-[10px] m-auto h-full p-11'>
+    <div className='mt-20 h-full pt-10'>
+
+      <div className='m-auto md:grid gap-10
+    grid-cols-2 mx-10'>
+      <div className='hidden md:flex flex-col border border-slate-900 bg-[#182B5C] text-[#fff] items-center rounded-[10px] h-full  p-6'>
+        <h2 className='flex'>Share your feedback</h2>
+        <hr className='m-4 bg-white'/>
+        <p>
+          "Feedback is the breakfast of champions, the compass that guides us to improvement and the mirror that reflects our potential for greatness."<br />
+        <strong><i>ChatGPT</i></strong>
+
+        </p>
+
+      </div>
+
+
+      <div className='border p-10 border-slate-900  rounded-[10px] h-full'>
 
       <h3 className='text-center mt-10 text-black'>Get in Touch</h3>
       <hr className='m-4'/>
@@ -24,8 +39,9 @@ function Contact() {
                 <textarea className="border border-slate-700 p-2 rounded-[10px]" name="message" placeholder='Type Your Message Here.' id="message">
 
                 </textarea>
-            <button className='border border-slate-950 rounded-full p-3 mt-7 bg-[rgba(0,255,0.4)] w-1/5 m-auto'>Submit</button>
+            <button className='border border-slate-950 rounded-full p-3 mt-4 bg-[rgba(0,255,0.4)]  m-auto'>Submit</button>
         </form>
+      </div>
       </div>
       <div className='mt-20 h-full py-20'>
         <h3 className='text-center text-black'>Join the Community</h3>
