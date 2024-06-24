@@ -6,14 +6,10 @@ import Sidebar from './Sidebar';
 
 function Navbar() {
 
-  // const [sidebar, setSidebar] = React.useState(false);
+  const [sidebar, setSidebar] = React.useState(false);
+  const side = ()=>setSidebar(!sidebar);
 
-  const side = document.querySelector('.sidebar')
-
-  const showSidebar = () => {
-    side.classList.toggle("-translate-x-full");
-
-  }
+  
 
 
 
@@ -58,11 +54,11 @@ function Navbar() {
 
                <div>
                 <button className='px-10 md:hidden'>
-                    <FaIcons.FaBars onClick={showSidebar} className='hover:text-[#ED7D3B]'/>
+                    <FaIcons.FaBars onClick={side} className='hover:text-[#ED7D3B]'/>
                 </button>
 
                </div>
-               <div className= 'sidebar w-1/2  top-[80px] fixed md:hidden'>
+               <div className= { ` ${ sidebar ?"":"-translate-x-full"} w-1/2  top-[80px] fixed md:hidden`}>
                 <Sidebar/>
              </div>
              
