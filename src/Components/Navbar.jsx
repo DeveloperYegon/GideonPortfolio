@@ -1,17 +1,18 @@
 import React from 'react'
-import { FaBars } from "react-icons/fa";
+import * as FaIcons from "react-icons/fa";
 import { Link } from 'react-router-dom'
-import { FaBell } from "react-icons/fa6";
 
-function Navbar() {
 
-  const btn = () => {
-    
-  }
+function Navbar({sidebarToggle, setSidebarToggle}) {
+
+  
+
+  const showSidebar = ()=>setSidebarToggle(!sidebarToggle);
 
   return (
         <nav className='bg-[#182B5C] border-b border-slate-950 fixed top-0 w-full h-20 items-center text-[#fff] flex justify-between'>
-            <div className='px-10 '>
+
+            <div className='px-10 text-[#ED7D3B] text-xl'>
               <Link to="/">
               DeloperYegon
               </Link> 
@@ -20,24 +21,28 @@ function Navbar() {
           
 
               <div className=' flex'>
-                <FaBell />
+                <Link to="/notifications">
+                <FaIcons.FaBell  className='hover:text-[#ED7D3B]'/>
+                </Link>
                 <div className='text-[rgb(255,0,0)]'>0</div>
               </div>
 
               
               <div>
-              <ul className='items-center hidden md:flex'>
-                    <li className='px-3'>
+              <ul className='items-center hidden md:flex text-xl'>
+                    <li className='px-3 hover:text-[#ED7D3B]'>
                       <Link to="/">
                       Home
                       </Link> 
                       </li>
-                    <li className='px-3'>
+                    <li className='px-3 hover:text-[#ED7D3B]'>
                       <Link to="/contact">Contact</Link>
                       </li>
-                    <li className='px-3'>
-                      <Link to="/projects">Projects</Link> </li>
-                    <li className='px-3'>
+                    <li className='px-3 hover:text-[#ED7D3B]'>
+                      <Link to="/projects ">Projects</Link> </li>
+                      <li className='px-3 hover:text-[#ED7D3B]'>
+                      <Link to="/services">Services</Link> </li>
+                    <li className='px-3 hover:text-[#ED7D3B] '>
                       <Link to="/blogs">Blogs</Link> </li>
                 </ul>
               </div>
@@ -45,9 +50,10 @@ function Navbar() {
 
                <div>
                 <button className='px-10 md:hidden'>
-                    <FaBars onClick={btn} />
+                    <FaIcons.FaBars onClick={showSidebar} className='hover:text-[#ED7D3B]'/>
                 </button>
                </div>
+             
     
         </nav>
   )
