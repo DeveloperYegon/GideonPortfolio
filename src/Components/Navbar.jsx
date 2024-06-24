@@ -3,11 +3,15 @@ import * as FaIcons from "react-icons/fa";
 import { Link } from 'react-router-dom'
 
 
-function Navbar({sidebarToggle, setSidebarToggle}) {
+function Navbar() {
 
-  
+  const side =document.querySelector('.sidebar');
+  console.log(side);
+  const showSidebar = () => {
+    side.classList.toggle('-translate-x-full');
+  }
 
-  const showSidebar = ()=>setSidebarToggle(!sidebarToggle);
+
 
   return (
         <nav className='bg-[#182B5C] border-b border-slate-950 fixed top-0 w-full h-20 items-center text-[#fff] flex justify-between'>

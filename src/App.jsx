@@ -12,17 +12,14 @@ import Notifications from './Pages/Notifications'
 
 function App( ) {
 
-  const [sidebarToggle, setSidebarToggle] = React.useState(false);
-
-
   return (
     <div>
      
      
       <BrowserRouter>
       <Navbar/>
-      <div className= {` w-1/2 fixed md:hidden left-0 transform transition-transform duration-300 ${sidebarToggle ? '' : '-translate-x-full'}`}>
-        <Sidebar sidebarToggle={sidebarToggle}/>
+      <div className= 'sidebar w-1/2 fixed md:hidden '>
+        <Sidebar/>
       </div>
       <Routes>
         <Route path='/' element={<Home/>}/>
