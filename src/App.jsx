@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import Contact from './Pages/Contact'
 import Blogs from './Pages/Blogs'
 import Services from './Pages/Services'
-import Sidebar from './Components/Sidebar' 
+
 import Notifications from './Pages/Notifications'
 
 function App( ) {
@@ -18,9 +18,7 @@ function App( ) {
      
       <BrowserRouter>
       <Navbar/>
-      <div className= 'sidebar w-1/2 fixed md:hidden '>
-        <Sidebar/>
-      </div>
+      
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/projects' element={<Projects/>}/>
