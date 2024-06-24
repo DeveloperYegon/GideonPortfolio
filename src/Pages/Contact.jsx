@@ -14,7 +14,7 @@ function Contact() {
 
       <div className='m-auto md:grid gap-10
     grid-cols-2 mx-10'>
-      <div className='hidden md:flex flex-col border border-slate-900 bg-[#182B5C] text-[#fff] items-center rounded-[10px] h-full  p-6'>
+      <div className='hidden md:flex flex-col  bg-[#182B5C] text-[#fff] items-center rounded-[10px] h-full p-6'>
         <h2 className='flex'>Share your feedback</h2>
         <hr className='m-4 bg-white'/>
         <p>

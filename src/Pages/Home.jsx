@@ -3,8 +3,11 @@ import myProfile from '../assets/GideonYegon.jpg'
 
 function Home(){
   return (
+    <>
     <div className='bg-cover grid gap-7 py-3 px-3 mt-20 justify-between bg-[url("./assets/bg.jpeg")] h-full md:grid-cols-2 md:px-20' >
- <div className='border w-full p-5 flex justify-around border-[#182B5C] rounded-[10px]'>
+      
+      
+      <div className='border w-full p-5 flex justify-around border-[#182B5C] rounded-[10px]'>
         <img src={myProfile} className='h-full border border-[rgb(0,255,0)] rounded-[50%]' alt="" />
       </div>
 
@@ -25,10 +28,29 @@ function Home(){
 
         </p>
      </div>
-
-     
-
     </div>
+    <div className='bg-[#fff] w-full'>
+      <h3>skills and expertise</h3>
+      <ul>
+        <li>Web Development</li>
+        <li>Mobile Development</li>
+        <li>Blockchain Technology</li>
+        <li>Machine Learning</li>
+        <li>Artificial Intelligence</li>
+        </ul>
+     </div>
+     <hr />
+     <div className='bg-[#fff] w-full'>
+      <h3>skills and expertise</h3>
+      <ul>
+        <li>Web Development</li>
+        <li>Mobile Development</li>
+        <li>Blockchain Technology</li>
+        <li>Machine Learning</li>
+        <li>Artificial Intelligence</li>
+        </ul>
+     </div>
+    </>
   )
 }
 

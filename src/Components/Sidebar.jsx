@@ -33,7 +33,7 @@ function Sidebar() {
         
         <hr className='m-4' />
         
-        <ul className='flex w-1/2 m-auto justify-around'>
+        <ul className='flex gap-2 justify-around'>
           <li className='border  rounded'>< ImLinkedin className='hover:bg-[#ED7D3B]'/> </li>
           <li className='border  rounded'><FaSquareInstagram className=' hover:bg-[#ED7D3B]'/></li>
           <li className='border  rounded'><FaTwitterSquare className=' hover:bg-[#ED7D3B]' /></li>

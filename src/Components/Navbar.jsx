@@ -2,6 +2,7 @@ import React from 'react'
 import * as FaIcons from "react-icons/fa";
 import { Link } from 'react-router-dom'
 import Sidebar from './Sidebar';
+import { useState } from "react";
 
 
 function Navbar() {
@@ -58,7 +59,7 @@ function Navbar() {
                 </button>
 
                </div>
-               <div className= { ` ${ sidebar ?"":"-translate-x-full"} w-1/2  top-[80px] fixed md:hidden`}>
+               <div className= { ` ${ sidebar ?"":"-translate-x-full"} w-2/3 duration-300 top-[80px] fixed md:hidden`}>
                 <Sidebar/>
              </div>
              
