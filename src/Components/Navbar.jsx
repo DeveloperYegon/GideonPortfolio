@@ -10,12 +10,16 @@ function Navbar() {
   const [sidebar, setSidebar] = React.useState(false);
   const side = ()=>setSidebar(!sidebar);
 
-  
+  const [isOpen, setIsOpen] = useState(false);
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
 
 
 
   return (
-        <nav className='bg-[#182B5C] border-b border-slate-950 fixed top-0 w-full h-20 items-center text-[#fff] flex justify-between'>
+        <nav className='bg-[#182B5C] border-b border-slate-950 fixed top-0 w-full h-20 items-center text-[#fff] flex justify-between shadow-lg shadow-[#ED7D3B]'>
 
             <div className='px-10 text-[#ED7D3B] text-xl'>
               <Link to="/">
@@ -54,8 +58,9 @@ function Navbar() {
 
 
                <div>
-                <button className='px-10 md:hidden'>
-                    <FaIcons.FaBars onClick={side} className='hover:text-[#ED7D3B]'/>
+                <button onClick={handleToggle} className='px-10 md:hidden'>
+                {isOpen ? <FaIcons.FaTimes onClick={side} className="hover:text-[#ED7D3B]" /> : <FaIcons.FaBars onClick={side} className="hover:text-[#ED7D3B]" />}
+                    {/* <FaIcons.FaBars onClick={side} className='hover:text-[#ED7D3B]'/> */}
                 </button>
 
                </div>
