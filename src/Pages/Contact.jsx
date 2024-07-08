@@ -48,16 +48,17 @@ function Contact() {
       </div>
       </div>
 
-      <div className='my-20 mx-5 border h-full bg-[#182b5c] rounded-xl py-10'>
+      <div className='my-10 mx-5 border h-full bg-[#182b5c] rounded-xl py-10'>
         <h3 className='text-center m-2 text-xl text-[#ED7D3B]'>Join our Community</h3>
         
         <hr className=' w-[80%] m-auto' />
         
-        <ul className='grid grid-cols-2 gap-5 pt-10 md:flex justify-around'>
-          <li className='border border-[#ED7D3B]  p-5 rounded'><Link to="">< ImLinkedin className='text-white hover:text-[#ED7D3B]'/></Link> </li>
-          <li className='border border-[#ED7D3B] p-5 rounded'><Link to=""><FaSquareInstagram className='text-white hover:text-[#ED7D3B]'/></Link></li>
-          <li className='border p-5 border-[#ED7D3B] rounded'><Link to=""><FaTwitterSquare className='text-white hover:text-[#ED7D3B]' /></Link></li>
-          <li className='border p-5 border-[#ED7D3B] rounded'><Link to=""><FaFacebookSquare className='text-white hover:text-[#ED7D3B]'/></Link></li>
+        <ul className='grid grid-cols-2 gap-5 p-10 md:flex justify-around'>
+          <li ><Link to="">< ImLinkedin className='text-[#ED7D3B]'/></Link> </li>
+          <li><Link to=""><FaSquareInstagram className='text-[#ED7D3B]'/></Link></li>
+
+          <li className='text-center'><Link to=""><FaTwitterSquare className=' text-[#ED7D3B]' /></Link></li>
+          <li><Link to=""><FaFacebookSquare className=' text-[#ED7D3B] '/></Link></li>
         </ul>
       </div>
 
