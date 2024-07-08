@@ -10,10 +10,10 @@ import { FaPinterestSquare } from "react-icons/fa";
 
 function Contact() {
   return (
-    <div className='mt-20 h-full pt-10 bg-[url("./assets/bg.jpeg")] bg-cover'>
+    <div className='mt-20 h-full pt-5 bg-[#fff] '>
 
-      <div className='m-auto md:grid gap-10
-    grid-cols-2 mx-10'>
+      <div className='m-auto md:grid gap-5
+    grid-cols-2 mx-5'>
       <div className='hidden md:flex flex-col  bg-[#182B5C] text-[#fff] items-center rounded-[10px] h-full p-6'>
         <h2 className='flex'>Share your feedback</h2>
         <hr className='m-4 bg-white'/>
@@ -26,7 +26,7 @@ function Contact() {
       </div>
 
 
-      <div className='border p-10 border-slate-900 bg-[#fff] rounded-[10px] h-full'>
+      <div className='border p-5 bg-[#182B5C] text-[#fff] rounded-[10px] h-full'>
 
       <h3 className='text-center mt-10 text-[#ED7D3B] text-xl'>Get in Touch</h3>
       <hr className='m-4'/>
@@ -48,17 +48,16 @@ function Contact() {
       </div>
       </div>
 
-      <div className='my-20 mx-10 border h-full bg-[#fff] py-20'>
-        <h3 className='text-center text-xl text-[#ED7D3B]'>Join our Community</h3>
+      <div className='my-20 mx-5 border h-full bg-[#182b5c] rounded-xl py-10'>
+        <h3 className='text-center m-2 text-xl text-[#ED7D3B]'>Join our Community</h3>
         
-        <hr className='m-4' />
+        <hr className=' w-[80%] m-auto' />
         
-        <ul className='flex w-1/2 pt-10 m-auto justify-around'>
-          <li className='border border-[#ED7D3B] p-5 rounded'><Link to="">< ImLinkedin className='bg-white hover:text-[#ED7D3B]'/></Link> </li>
-          <li className='border border-[#ED7D3B] p-5 rounded'><Link to=""><FaSquareInstagram className='bg-white hover:text-[#ED7D3B]'/></Link></li>
-          <li className='border p-5 border-[#ED7D3B] rounded'><Link to=""><FaTwitterSquare className='bg-white hover:text-[#ED7D3B]' /></Link></li>
-          <li className='border p-5 border-[#ED7D3B] rounded'><Link to=""><FaFacebookSquare className='bg-white hover:text-[#ED7D3B]'/></Link></li>
-          <li className='border p-5 border-[#ED7D3B] rounded'><Link to=""><FaPinterestSquare className='bg-white hover:text-[#ED7D3B]'/></Link></li>
+        <ul className='grid grid-cols-2 gap-5 pt-10 md:flex justify-around'>
+          <li className='border border-[#ED7D3B]  p-5 rounded'><Link to="">< ImLinkedin className='text-white hover:text-[#ED7D3B]'/></Link> </li>
+          <li className='border border-[#ED7D3B] p-5 rounded'><Link to=""><FaSquareInstagram className='text-white hover:text-[#ED7D3B]'/></Link></li>
+          <li className='border p-5 border-[#ED7D3B] rounded'><Link to=""><FaTwitterSquare className='text-white hover:text-[#ED7D3B]' /></Link></li>
+          <li className='border p-5 border-[#ED7D3B] rounded'><Link to=""><FaFacebookSquare className='text-white hover:text-[#ED7D3B]'/></Link></li>
         </ul>
       </div>
 

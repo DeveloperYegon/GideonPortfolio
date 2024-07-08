@@ -2,7 +2,7 @@ import React from 'react'
 
 function Blogs() {
   return (
-    <div className='bg-[url("./assets/bg.jpeg")] bg-cover mt-20 h-[100vh]'>
+    <div className='bg-[#fff] mt-20 text-[#182B5C] h-[100vh]'>
       Blogs
       
 

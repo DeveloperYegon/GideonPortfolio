@@ -8,7 +8,7 @@ import { FaPinterestSquare } from "react-icons/fa";
 
 function Sidebar() {
   return (
-    <div className='mt-3  py-10 bg-[#182B5C] rounded text-[#fff] h-full'>
+    <div className='mt-3  py-10 bg-[#fff] rounded text-[#182B5C] h-full'>
       <ul className='text-center text-xl'>
       <li className='py-2 hover:bg-white hover:text-[#ED7D3B]'>
             <Link to="/">Home</Link>

@@ -19,7 +19,7 @@ function Navbar() {
 
 
   return (
-        <nav className='bg-[#182B5C] border-b border-slate-950 fixed top-0 w-full h-20 items-center text-[#fff] flex justify-between shadow-lg shadow-[#ED7D3B]'>
+        <nav className='bg-[#fff]  fixed top-0 w-full h-20 items-center text-[#182b5c] flex justify-between shadow-lg '>
 
             <div className='px-10 text-[#ED7D3B] text-xl'>
               <Link to="/">
