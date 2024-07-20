@@ -2,7 +2,8 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import profile from '../assets/GideonYegon.jpg';
+import alex from '../assets/Alexander Njuguna.png';
+import Roonie from '../assets/Roonie.png';
 
 const SliderComponent = () => {
   const settings = {
@@ -19,16 +20,16 @@ const SliderComponent = () => {
     <div className="slider-container" style={{ width: '80%', margin: '0 auto' }}>
       <Slider {...settings}>
         <div>
-          <img className='rounded' src="" alt="Slide 1" />
+          <img src={alex} alt="Slide 1" />
         </div>
         <div>
-          <img src="" alt="Slide 2" />
+          <img src={Roonie} alt="Slide 2" />
         </div>
         <div>
-          <img src="" alt="Slide 3" />
+          <img src={alex} alt="Slide 3" />
         </div>
         <div>
-          <img src="" alt="Slide 4" />
+          <img src={Roonie} alt="Slide 4" />
         </div>
       </Slider>
     </div>
