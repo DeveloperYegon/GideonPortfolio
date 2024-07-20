@@ -1,5 +1,15 @@
 import React from 'react'
 import myProfile from '../assets/GideonYegon.jpg'
+import { FaReact } from "react-icons/fa";
+import { TbBrandJavascript } from "react-icons/tb";
+import { FcLinux } from "react-icons/fc";
+import { FaGitAlt } from "react-icons/fa6";
+import { IoLogoHtml5 } from "react-icons/io";
+import { FaPython } from "react-icons/fa6";   
+import { SiMysql } from "react-icons/si";
+import { FaWordpress } from "react-icons/fa";
+import { RiTailwindCssFill } from "react-icons/ri";
+import SliderComponent from '../Components/SliderComponent';
 
 function Home(){
   return (
@@ -30,28 +40,37 @@ function Home(){
      </div>
     </div>
 
-    <div className='text-[#fff] rounded-xl mx-4 my-10 bg-[#182B5C] py-3 md:mx-20 px-3 h-full'>
+    <div className='text-[#fff] rounded-xl mx-4 my-10 bg-[#182B5C]  py-3 md:mx-20 px-3 h-full'>
       <h3 className='text-center'>skills and expertise</h3>
-      <hr className='bg-white w-[80%] m-auto'/>
-      <ul>
-        <li>Web Development</li>
-        <li>Mobile Development</li>
-        <li>Blockchain Technology</li>
-        <li>Machine Learning</li>
-        <li>Artificial Intelligence</li>
-        </ul>
+      <hr className='bg-white w-[80%] h-1 m-auto'/>
+
+      <div className='grid md:grid-cols-4 m-10 gap-5'>
+      <div className='flex border p-5 items-center gap-5'><FaReact className='' /> React JS</div>
+      <div className='flex border  p-5 items-center gap-5'><FcLinux />Linux</div>
+      <div className='flex border p-5 items-center gap-5'><FaGitAlt />Version Control</div>
+      <div className='flex border p-5 items-center gap-5'> <IoLogoHtml5 />HTML5</div>
+      <div className='flex border p-5 items-center gap-5'><FaPython />Python</div>
+      <div className='flex border p-5 items-center gap-5'><RiTailwindCssFill />Tailwind Css</div>
+      <div className='flex border p-5 items-center gap-5'><TbBrandJavascript />Javascript</div>
+      <div className='flex border p-5 items-center gap-5'><SiMysql />MySql</div>
+      <div className='flex border p-5 items-center gap-5'><FaWordpress />WordPress</div>
+      </div>
      </div>
     
      <div className=' text-white mx-4 md:mx-20 my-10 rounded-xl bg-[#182B5C]  py-3 px-3  h-full'>
-      <h3 className='text-center'>skills and expertise</h3>
+      <h3 className='text-center'>Services</h3>
+      <hr className='bg-white w-[80%] h-1 m-auto'/>
+     <div className='grid md:grid-cols-2 m-10 gap-5'>
+      <div className='flex border p-5 items-center gap-5'>Web Development</div>
+      <div className='flex border p-5 items-center gap-5'>Wordpress Development</div>
+     </div>
+     </div>
+     <div className=' text-white mx-4 md:mx-20 my-10 rounded-xl bg-[#182B5C]  py-3 px-3  h-full'>
+      <h3 className='text-center'>Reviews</h3>
       <hr className='bg-white w-[80%] m-auto'/>
-      <ul>
-        <li>Web Development</li>
-        <li>Mobile Development</li>
-        <li>Blockchain Technology</li>
-        <li>Machine Learning</li>
-        <li>Artificial Intelligence</li>
-        </ul>
+      <div className='h-full p-10'>
+        <SliderComponent/>
+      </div>
      </div>
     </div>
   )

@@ -21,10 +21,6 @@ function Sidebar() {
           
             </li>
           <li className='py-2 hover:bg-white hover:text-[#ED7D3B]'>
-            <Link to="/services">Services</Link>
-
-          </li >
-          <li className='py-2 hover:bg-white hover:text-[#ED7D3B]'>
             <Link to="/blogs">Blogs</Link>
           </li>
       </ul>
@@ -34,7 +30,8 @@ function Sidebar() {
         <hr className='m-4' />
         
         <ul className='flex gap-2 justify-around'>
-          <li className='border  rounded'>< ImLinkedin className='hover:bg-[#ED7D3B]'/> </li>
+          <li className='border  rounded'>
+            <Link to="https://www.linkedin.com/in/developer-yegon/"></Link> < ImLinkedin className='hover:bg-[#ED7D3B]'/> </li>
           <li className='border  rounded'><FaSquareInstagram className=' hover:bg-[#ED7D3B]'/></li>
           <li className='border  rounded'><FaTwitterSquare className=' hover:bg-[#ED7D3B]' /></li>
           <li className='border rounded'><FaFacebookSquare className=' hover:bg-[#ED7D3B]'/></li>

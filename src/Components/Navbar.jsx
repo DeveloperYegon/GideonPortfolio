@@ -2,7 +2,7 @@ import React from 'react'
 import * as FaIcons from "react-icons/fa";
 import { Link } from 'react-router-dom'
 import Sidebar from './Sidebar';
-import { useState } from "react";
+import { useState , useEffect} from "react";
 
 
 function Navbar() {
@@ -14,6 +14,14 @@ function Navbar() {
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
+
+  const [count, setCount] = React.useState(0);
+  useEffect(() => {
+    fetch('http://localhost:3001/requests')
+  .then(response => response.json())
+  .then(data => setCount(data.length))
+  .catch(err => console.log(err));
+  },[])
 
 
 
@@ -33,7 +41,7 @@ function Navbar() {
                 <Link to="/notifications">
                 <FaIcons.FaBell  className='hover:text-[#ED7D3B]'/>
                 </Link>
-                <div className='text-[rgb(255,0,0)]'>0</div>
+                <div className='text-[rgb(255,0,0)]'>{count}</div>
               </div>
 
               
@@ -49,8 +57,8 @@ function Navbar() {
                       </li>
                     <li className='px-3 hover:text-[#ED7D3B]'>
                       <Link to="/projects ">Projects</Link> </li>
-                      <li className='px-3 hover:text-[#ED7D3B]'>
-                      <Link to="/services">Services</Link> </li>
+                      {/* <li className='px-3 hover:text-[#ED7D3B]'>
+                      <Link to="/services">Services</Link> </li> */}
                     <li className='px-3 hover:text-[#ED7D3B] '>
                       <Link to="/blogs">Blogs</Link> </li>
                 </ul>
