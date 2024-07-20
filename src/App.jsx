@@ -6,7 +6,6 @@ import Projects from './Pages/Projects'
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import Contact from './Pages/Contact'
 import Blogs from './Pages/Blogs'
-import Services from './Pages/Services'
 
 import Notifications from './Pages/Notifications'
 
@@ -25,7 +24,7 @@ function App( ) {
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/notifications' element={<Notifications/>}/>
         <Route path='/blogs' element={<Blogs/>}/>
-        <Route path='/services' element={<Services/>}/>
+        {/* <Route path='/services' element={<Services/>}/> */}
 
       </Routes>
       <Footer/>
