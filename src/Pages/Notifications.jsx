@@ -47,7 +47,7 @@ function Notifications() {
               <label htmlFor="name">UserName:</label>
               <input type="text" id="name" name="name" className="border p-2 rounded-xl" placeholder=" Enter Your User Name" required autoFocus /><br /><br />
               <label htmlFor="email">Password:</label>
-              <input type="password"  className="p-2 rounded-xl" id="email" name="email" placeholder=" Enter Your Password" required /><br /><br />
+              <input type="password"  className="p-2 rounded-xl border" id="email" name="email" placeholder=" Enter Your Password" required /><br /><br />
               <input type="submit" className="bg-[#182B5C] p-3 rounded-xl text-white " value="Submit" />
             </form>
 

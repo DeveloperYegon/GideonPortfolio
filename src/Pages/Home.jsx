@@ -12,7 +12,24 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import SliderComponent from '../Components/SliderComponent';
 
 function Home(){
+
+  const getGreeting = () => {
+    const now = new Date();
+    const hour = now.getHours();
+  
+    if (hour < 12) {
+      return 'Good Morning!';
+    } else if (hour < 18) {
+      return 'Good Afternoon!';
+    } else {
+      return 'Good Evening!';
+    }
+  };
+
+
+
   return (
+
     <div className='bg-[#fff]'>
     <div className='grid gap-7 pt-10 px-3 mt-20 justify-between  h-full md:grid-cols-2 md:px-20' >
       
@@ -23,19 +40,23 @@ function Home(){
 
       <div className='text-[#fff] rounded-[10px] shadow-lg shadow-[#ED7D3B] border bg-[#182B5C]' >
         <p className='p-9'>
-                  Hello world?<br />
+          <p>{getGreeting()}</p>
+          <p>
               I'm <strong>Gideon Kipkorir Yegon,</strong> <br />
               A  <strong>Software Engineer</strong> with 2+ years of interacting with software engineering tools and content.
               I have delved into building and development of softwares to enhace smooth business operations in the technology world. 
-              <br />
+              </p>
+              <p>
               My greatest strength is collaborating and driving effectiveness across teams.
               I have talent for designing and developing systems to successfully launch technology products.
-              <br />
+              </p>
+              <p>
               I am passionate about scraping innovations using technology products including web and mobile development revolving around 
               blockchain technology.
-              <br />
+              </p>
+              <p>
               I value being collaborative, inclusive, authentic and having fun  when doing it.
-
+              </p>
         </p>
      </div>
     </div>
