@@ -30,7 +30,7 @@ db.connect((err)=>{
     else{
         console.log('Mysql Connected',db.threadId);
     }
-});
+    });
 
     db.query(`CREATE DATABASE IF NOT EXISTS GideonDB`, (err,result)=>{
         //error creating db
@@ -88,6 +88,8 @@ db.connect((err)=>{
                         }
                 });
             });
+            //submiting data
+            
         });
     });
 });

@@ -1,39 +1,18 @@
 import porty from './porty.png';
+import techmaze from './techmaze.png';
 const projects=[
     {
         id:1,
         image:porty,
-        name:"Portfolio",
-        description:"A portfolio website that showcases my projects and skills",
-
-    },
-    {
-        id:5,
-        image:"/assets/portfolio.png",
-        name:"Portfolio",
-        description:"A portfolio website that showcases my projects and skills",
-
-    },
-    {
-        id:4,
-        image:"/assets/portfolio.png",
-        name:"Portfolio",
+        name:"Portfolio Website",
         description:"A portfolio website that showcases my projects and skills",
 
     },
     {
         id:2,
-        image:"/assets/portfolio.png",
-        name:"Portfolio",
-        description:"A portfolio website that showcases my projects and skills",
-
-    },
-    {
-        id:3,
-        image:"/assets/portfolio.png",
-        name:"Portfolio",
-        description:"A portfolio website that showcases my projects and skills",
-
+        image:techmaze,
+        title:"Techmaze Blogs website",
+        description:"This is blog WordPress website which showcase the latest technology trends, latest job opportunities and current grants. "
     }
 ]
 export default projects;

@@ -25,8 +25,8 @@ function Home(){
         <p className='p-9'>
                   Hello world?<br />
               I'm <strong>Gideon Kipkorir Yegon,</strong> <br />
-              A  <strong>Software Engineer</strong> with over 2 years of interacting software engineering content.
-              I have delved into building and development of softwares to enhace smooth businness operations in the technology world. 
+              A  <strong>Software Engineer</strong> with 2+ years of interacting with software engineering tools and content.
+              I have delved into building and development of softwares to enhace smooth business operations in the technology world. 
               <br />
               My greatest strength is collaborating and driving effectiveness across teams.
               I have talent for designing and developing systems to successfully launch technology products.
@@ -34,7 +34,7 @@ function Home(){
               I am passionate about scraping innovations using technology products including web and mobile development revolving around 
               blockchain technology.
               <br />
-              I value being collaborative, having fun and being inclusive & authentic when doing it.
+              I value being collaborative, inclusive, authentic and having fun  when doing it.
 
         </p>
      </div>
@@ -62,6 +62,7 @@ function Home(){
       <hr className='bg-white w-[80%] h-1 m-auto'/>
      <div className='grid md:grid-cols-2 m-10 gap-5'>
       <div className='flex border p-5 items-center gap-5'>Web Development</div>
+      <div className='flex border p-5 items-center gap-5'>Chatbot Integrations</div>
       <div className='flex border p-5 items-center gap-5'>Wordpress Development</div>
      </div>
      </div>

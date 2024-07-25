@@ -27,7 +27,7 @@ function Navbar() {
 
 
   return (
-        <nav className='bg-[#fff]  fixed top-0 w-full h-20 items-center text-[#182b5c] flex justify-between shadow-lg '>
+        <nav className='bg-[#fff] fixed top-0 w-full h-20 items-center text-[#182b5c] flex justify-between shadow-lg '>
 
             <div className='px-10 text-[#ED7D3B] text-xl'>
               <Link to="/">
@@ -41,7 +41,7 @@ function Navbar() {
                 <Link to="/notifications">
                 <FaIcons.FaBell  className='hover:text-[#ED7D3B]'/>
                 </Link>
-                <div className='text-[rgb(255,0,0)]'>{count}</div>
+                <div className=' bg-black bottom-2 right-1 rounded-full p-1 relative text-[rgb(255,0,0)]'>{count}</div>
               </div>
 
               
@@ -53,14 +53,14 @@ function Navbar() {
                       </Link> 
                       </li>
                     <li className='px-3 hover:text-[#ED7D3B]'>
-                      <Link to="/contact">Contact</Link>
-                      </li>
-                    <li className='px-3 hover:text-[#ED7D3B]'>
                       <Link to="/projects ">Projects</Link> </li>
                       {/* <li className='px-3 hover:text-[#ED7D3B]'>
                       <Link to="/services">Services</Link> </li> */}
                     <li className='px-3 hover:text-[#ED7D3B] '>
                       <Link to="/blogs">Blogs</Link> </li>
+                      <li className='px-3 hover:text-[#ED7D3B]'>
+                        <Link to="/contact">Contact</Link>
+                        </li>
                 </ul>
               </div>
 
@@ -68,7 +68,6 @@ function Navbar() {
                <div>
                 <button onClick={handleToggle} className='px-10 md:hidden'>
                 {isOpen ? <FaIcons.FaTimes onClick={side} className="hover:text-[#ED7D3B]" /> : <FaIcons.FaBars onClick={side} className="hover:text-[#ED7D3B]" />}
-                    {/* <FaIcons.FaBars onClick={side} className='hover:text-[#ED7D3B]'/> */}
                 </button>
 
                </div>

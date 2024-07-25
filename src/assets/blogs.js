@@ -1,33 +1,14 @@
+
+import webtools from './web tools.jpeg';
+
 const blogs=[
     {
         id:1,
-        title:"How to create a blog with Django",
-        image:"/assets/blog1.jpg",
-        description:"A portfolio website that showcases my projects and skills"
-    },
-    {
-        id:5,
-        title:"How to create a blog with Django",
-        image:"/assets/blog1.jpg",
-        description:"A portfolio website that showcases my projects and skills"
-    },
-    {
-        id:4,
-        title:"How to create a blog with Django",
-        image:"/assets/blog1.jpg",
-        description:"A portfolio website that showcases my projects and skills"
-    },
-    {
-        id:3,
-        title:"How to create a blog with Django",
-        image:"/assets/blog1.jpg",
-        description:"A portfolio website that showcases my projects and skills"
-    },
-    {
-        id:2,
-        title:"How to create a blog with Django",
-        image:"/assets/blog1.jpg",
-        description:"A portfolio website that showcases my projects and skills"
-    },
+        image:webtools,
+        title:"10 Essential Web Development Tools for Beginners",
+        description:"Web development can seem daunting to beginners, but the right tools can make the learning process smoother and more enjoyable. Here are ten essential web development tools that every beginner should consider: "
+    }
+    
+    
 ]
 export default blogs;
