@@ -1,8 +1,9 @@
 import React from 'react'
 import blogs from '../assets/blogs'
 import Item from '../Components/Item'
+// import Blogs from '../Components/Blogs'
 
-function Blogs() {
+function BlogsPage() {
   return (
     <div className='bg-[#fff] mt-20 text-[#182B5C] h-full'>
       <h1 className=' p-5 text-xl text-center'>Blogs</h1>
@@ -21,4 +22,4 @@ function Blogs() {
   )
 }
 
-export default Blogs
+export default BlogsPage

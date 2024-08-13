@@ -5,29 +5,27 @@ import Home from './Pages/Home'
 import Projects from './Pages/Projects'
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 import Contact from './Pages/Contact'
-import Blogs from './Pages/Blogs'
+import BlogsPage from './Pages/BlogsPage'
+import Blog from './Pages/Blog'
 
 import Notifications from './Pages/Notifications'
 
 function App( ) {
 
   return (
-    <div>
-     
-     
+    <div>     
       <BrowserRouter>
-      <Navbar/>
-      
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/projects' element={<Projects/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/notifications' element={<Notifications/>}/>
-        <Route path='/blogs' element={<Blogs/>}/>
-        {/* <Route path='/services' element={<Services/>}/> */}
+          <Navbar/>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/projects' element={<Projects/>}/>
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/notifications' element={<Notifications/>}/>
+            <Route path='/blogs' element={<BlogsPage/>}/>
+            <Route path='/blog/:blogId' element={<Blog />} />
 
-      </Routes>
-      <Footer/>
+          </Routes>
+          <Footer/>
       </BrowserRouter>
     
     </div>

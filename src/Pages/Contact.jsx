@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ImLinkedin } from "react-icons/im";
 import { FaSquareInstagram } from "react-icons/fa6";
@@ -6,10 +6,34 @@ import { FaTwitterSquare } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
+import axios from 'axios';
 
 
 
 function Contact() {
+
+  const [values, setValues] = React.useState({
+    name :'',
+    email : '',
+     message :''
+  });
+  
+     
+
+  const handleChange = (e) => {
+      setValues({ ...values, [e.target.name]: [e.target.value] });
+    }
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      axios.post('http://localhost:3002/requests', values)
+      .then((response) =>console.log(response))
+      .catch((err) => console.log(err));
+      form.reset();
+    }
+
+
+    
 
   return (
     <div className='mt-20 h-full pt-5 bg-[#fff] '>
@@ -31,21 +55,24 @@ function Contact() {
 
       <h3 className='text-center mt-10 text-[#ED7D3B] text-xl'>Get in Touch</h3>
       <hr className='m-4'/>
-        <form action="" method='post' className='flex flex-col'>
+
+      {/* //form */}
+        <form className='flex flex-col' onSubmit={handleSubmit}>
             <label htmlFor="contactname">Name:</label>
-                <input className="border border-slate-700 p-2  bg-gray-200 text-black rounded-full" type="text" autoFocus placeholder='Enter Your Name' id="contactname"/>
+                <input className="border border-slate-700 p-2  bg-gray-200 text-black rounded-full" type="text" autoFocus placeholder='Enter Your Name' name="name" onChange={handleChange} id="contactname"/>
 
 
-            <label htmlFor="contactmail">Email:</label>
-                <input className="border border-slate-700  bg-gray-200 p-2 text-black rounded-full" type="email" placeholder='Enter Your Email' id="contactmail"/>
+            <label htmlFor="email">Email:</label>
+                <input className="border border-slate-700  bg-gray-200 p-2 text-black rounded-full" onChange={handleChange} type="email" placeholder='Enter Your Email' name="email" id="email"/>
 
 
               <label htmlFor="message">Message:</label>
-                <textarea className="border border-slate-700 bg-gray-200 text-black p-2 rounded-[10px]" name="message" placeholder='Type Your Message Here.' id="message">
+                <textarea className="border border-slate-700 bg-gray-200 text-black p-2 rounded-[10px]" onChange={handleChange} name="message" placeholder='Type Your Message Here.'  id="message">
 
                 </textarea>
-            <button className='border border-slate-950 rounded-xl p-2 mt-4 bg-[#ED7D3B] uppercase text-xl m-auto'>Submit</button>
+            <button className='border border-slate-950 rounded-xl p-2 mt-4 bg-[#ED7D3B] uppercase text-xl m-auto' type='submit'>Submit</button>
         </form>
+        <p className='bg-black'></p>
       </div>
     </div>
 

@@ -15,14 +15,7 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  const [count, setCount] = React.useState(0);
-  useEffect(() => {
-    fetch('http://localhost:3001/requests')
-  .then(response => response.json())
-  .then(data => setCount(data.length))
-  .catch(err => console.log(err));
-  },[])
-
+  
 
 
 
@@ -37,12 +30,6 @@ function Navbar() {
 
           
 
-              <div className=' flex'>
-                <Link to="/notifications">
-                <FaIcons.FaBell  className='hover:text-[#ED7D3B]'/>
-                </Link>
-                <div className=' bg-black bottom-2 right-1 rounded-full p-1 relative text-[rgb(255,0,0)]'>{count}</div>
-              </div>
 
               
               <div>
