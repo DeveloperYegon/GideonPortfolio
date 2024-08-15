@@ -7,36 +7,42 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import axios from 'axios';
-
-
+import {useNavigate} from 'react-router-dom';
 
 function Contact() {
 
   const [values, setValues] = React.useState({
     name :'',
     email : '',
-     message :''
+     message :'',
+     country:'',
   });
-  
-     
+
+  const navigate = useNavigate(); // Hook to handle navigation
 
   const handleChange = (e) => {
-      setValues({ ...values, [e.target.name]: [e.target.value] });
+      setValues({ ...values, [e.target.name]: e.target.value});
     }
 
   const handleSubmit = (e) => {
       e.preventDefault();
       axios.post('http://localhost:3002/requests', values)
-      .then((response) =>console.log(response))
+      .then((response) =>{
+        console.log(response);
+        navigate('/'); // Redirect to a different page, e.g., '/dashboard'
+        setValues({ name:'', email: '', message: '', country:'' }); // Reset form fields
+        if(response.status === 200){
+          alert('Feedback sent successfully')
+      }
+  })
       .catch((err) => console.log(err));
-      form.reset();
     }
 
 
     
 
   return (
-    <div className='mt-20 h-full pt-5 bg-[#fff] '>
+    <div className=' h-full pt-5 bg-[#fff] '>
 
       <div className=' md:grid gap-5
          grid-cols-2 md:m-10 m-5'>
@@ -59,12 +65,14 @@ function Contact() {
       {/* //form */}
         <form className='flex flex-col' onSubmit={handleSubmit}>
             <label htmlFor="contactname">Name:</label>
-                <input className="border border-slate-700 p-2  bg-gray-200 text-black rounded-full" type="text" autoFocus placeholder='Enter Your Name' name="name" onChange={handleChange} id="contactname"/>
+                <input className="border border-slate-700 p-2  bg-gray-200 text-black rounded-xl" type="text" autoFocus placeholder='Enter Your Name' name="name" onChange={handleChange} id="contactname"/>
 
 
             <label htmlFor="email">Email:</label>
-                <input className="border border-slate-700  bg-gray-200 p-2 text-black rounded-full" onChange={handleChange} type="email" placeholder='Enter Your Email' name="email" id="email"/>
+                <input className="border border-slate-700  bg-gray-200 p-2 text-black rounded-xl" onChange={handleChange} type="email" placeholder='Enter Your Email' name="email" id="email"/>
 
+                <label htmlFor="country">Country:</label>
+                <input className="border border-slate-700  bg-gray-200 p-2 text-black rounded-xl" onChange={handleChange} type="text" placeholder='Enter Your Country' name="country" id="country"/>  
 
               <label htmlFor="message">Message:</label>
                 <textarea className="border border-slate-700 bg-gray-200 text-black p-2 rounded-[10px]" onChange={handleChange} name="message" placeholder='Type Your Message Here.'  id="message">

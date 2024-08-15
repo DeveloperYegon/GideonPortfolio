@@ -9,6 +9,7 @@ import BlogsPage from './Pages/BlogsPage'
 import Blog from './Pages/Blog'
 
 import Notifications from './Pages/Notifications'
+import Donate from './Pages/Donate'
 
 function App( ) {
 
@@ -23,6 +24,7 @@ function App( ) {
             <Route path='/notifications' element={<Notifications/>}/>
             <Route path='/blogs' element={<BlogsPage/>}/>
             <Route path='/blog/:blogId' element={<Blog />} />
+            <Route path='/donate' element={<Donate/>} />
 
           </Routes>
           <Footer/>

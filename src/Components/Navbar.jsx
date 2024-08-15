@@ -15,22 +15,16 @@ function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  
-
-
-
   return (
-        <nav className='bg-[#fff] fixed top-0 w-full h-20 items-center text-[#182b5c] flex justify-between shadow-lg '>
+        <nav className='bg-[#fff] sticky top-0 w-full h-20 items-center text-[#182b5c] flex justify-between shadow-lg '>
 
-            <div className='px-10 text-[#ED7D3B] text-xl'>
+            <div className='px-10 hover:text-[#ED7D3B] text-xl'>
               <Link to="/">
               DeloperYegon
               </Link> 
               </div>
 
-          
-
-
+        
               
               <div>
               <ul className='items-center hidden md:flex text-xl'>
@@ -48,9 +42,12 @@ function Navbar() {
                       <li className='px-3 hover:text-[#ED7D3B]'>
                         <Link to="/contact">Contact</Link>
                         </li>
+                        <li className='px-3 hover:text-[#ED7D3B]'>
+                        <Link to="/donate">Donate</Link>
+                        </li>
                 </ul>
               </div>
-
+            
 
                <div>
                 <button onClick={handleToggle} className='px-10 md:hidden'>
@@ -61,6 +58,10 @@ function Navbar() {
                <div className= { ` ${ sidebar ?"":"-translate-x-full"} w-2/3 duration-300 top-[80px] fixed md:hidden`}>
                 <Sidebar/>
              </div>
+             {/* <div className='hidden md:flex text-xl px-5 py-1 rounded-full bg-[#ED7D3B]'>
+                <Link to="/donate">Donate</Link>
+              </div> */}
+
              
     
         </nav>

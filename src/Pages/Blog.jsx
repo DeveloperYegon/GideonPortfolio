@@ -18,7 +18,7 @@ function Blog() {
     
   return (
     <div>
-        <   BlogDisplay blog={blog} />
+        <BlogDisplay blog={blog} />
     </div>
   )
 }

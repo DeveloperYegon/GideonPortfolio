@@ -7,7 +7,7 @@ export const BlogContext = createContext(null);
 const BlogContextProvider =(props)=>{
 
     const contextValue = {  blogs };
-console.log(contextValue);
+    console.log(contextValue);
 
   return (
     <BlogContext.Provider value={contextValue}>

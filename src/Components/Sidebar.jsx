@@ -13,9 +13,7 @@ function Sidebar() {
       <li className='py-2 hover:bg-white hover:text-[#ED7D3B]'>
             <Link to="/">Home</Link>
             </li>
-          <li className='py-2 hover:bg-white hover:text-[#ED7D3B]'>
-            <Link to="/contact">Contact</Link> 
-            </li>
+         
           <li className='py-2 hover:bg-white hover:text-[#ED7D3B]'>
             <Link to="/projects">Projects</Link>
           
@@ -23,6 +21,13 @@ function Sidebar() {
           <li className='py-2 hover:bg-white hover:text-[#ED7D3B]'>
             <Link to="/blogs">Blogs</Link>
           </li>
+          <li className='py-2 hover:bg-white hover:text-[#ED7D3B]'>
+            <Link to="/blogs">Donate</Link></li>
+            
+          <li className='py-2 hover:bg-white hover:text-[#ED7D3B]'>
+          <Link to="/contact">Contact</Link> 
+          </li>
+          
       </ul>
       
         <h3 className='text-center pt-8 text-[#ED7D3B] text-xl'>Join our Community</h3>
@@ -35,7 +40,6 @@ function Sidebar() {
           <li className='border  rounded'><FaSquareInstagram className=' hover:bg-[#ED7D3B]'/></li>
           <li className='border  rounded'><FaTwitterSquare className=' hover:bg-[#ED7D3B]' /></li>
           <li className='border rounded'><FaFacebookSquare className=' hover:bg-[#ED7D3B]'/></li>
-          <li className='border rounded'><FaPinterestSquare className=' hover:bg-[#ED7D3B]'/></li>
         </ul>
     
       </div>
