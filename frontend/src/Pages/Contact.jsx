@@ -11,6 +11,9 @@ import {useNavigate} from 'react-router-dom';
 
 function Contact() {
 
+  const {formState}= form;
+  const {errors}=formState;
+
   const [values, setValues] = React.useState({
     name :'',
     email : '',
@@ -81,13 +84,24 @@ function Contact() {
       <hr className='m-4'/>
 
       {/* //form */}
-        <form className='flex flex-col' onSubmit={handleSubmit}>
+        <form className='flex flex-col' noValidate onSubmit={handleSubmit}>
+          <div>
             <label className='pt-2' htmlFor="contactname">Name:</label>
-                <input className="border border-slate-700 p-2  bg-gray-200 text-black rounded-xl" type="text" autoFocus placeholder='Enter Your Name' name="name" onChange={handleChange} id="contactname"/>
+                <input className="border border-slate-700 p-2  bg-gray-200 text-black rounded-xl" type="text" autoFocus placeholder='Enter Your Name' name="name" onChange={handleChange} {...values("name",{required:{
+                  value:true,
+                  message:"Name required",}
+                  
+                }
+              )} 
+                
+                id="contactname"/>
+                <p className='text-red-500 text-left text -[12px]'> {errors.name?.message}</p>
 
+            </div>
 
             <label className='pt-2' htmlFor="email">Email:</label>
                 <input className="border border-slate-700  bg-gray-200 p-2 text-black rounded-xl" onChange={handleChange} type="email" placeholder='Enter Your Email' name="email" id="email"/>
+                
 
               <label className='pt-2' htmlFor="country">Country:</label>
               <select name="country" onChange={handleChange} className='border border-slate-700  bg-gray-200 p-2 text-black rounded-xl' aria-label='Default select example' id="country">

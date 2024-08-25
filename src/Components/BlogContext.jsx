@@ -16,4 +16,4 @@ const BlogContextProvider =(props)=>{
   )
 }
 
-export default BlogContextProvider
+export default BlogContextProvider;

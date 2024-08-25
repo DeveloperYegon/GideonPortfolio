@@ -1,18 +1,38 @@
 const express= require("express");
-const app = express();
 const cors = require('cors');
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
-const bcrypt = require('bcrypt');   
+const bcrypt = require('bcrypt');
+const path = require('path');
+const session = require('express-session');
+const {check, validationResult} = require('express-validator');
 const morgan = require("morgan"); // Logging middleware
+const bodyParser = require("body-parser");
 
-
+//initialize app
+const app = express();
 //middlewares
 app.use(cors());
-app.use(express.json());
 dotenv.config();
 app.use(morgan('combined')); // Use morgan for logging
 
+//handle incoming data
+app.use(express.json()); // Parse JSON bodies
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
+
+// serve static files
+app.use(express.static(__dirname)); // Serve static files
+
+// Configure session middleware
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Set to true if using HTTPS
+  }));
+  
 
 //database connection
 const db=mysql.createConnection({
@@ -41,7 +61,7 @@ db.query(`CREATE DATABASE IF NOT EXISTS GideonDB`, (err,result)=>{
             console.log('GideonDB Database created successfully');
             //use the database
             db.changeUser({database:"GideonDB"},(err,result)=>{
-    
+
                 //if error changing db
                 if(err){
                     console.log(`Error changing database: ${err}`);
@@ -49,11 +69,11 @@ db.query(`CREATE DATABASE IF NOT EXISTS GideonDB`, (err,result)=>{
                 {
                     console.log('Database changed to GideonDB');
                     initializeTables();
-    
+
                 }
             });
         }
-}); 
+});
 
 
 
@@ -88,7 +108,7 @@ function initializeTables() {
             description varchar(255) not null,
             created_at timestamp default current_timestamp,
             updated_at timestamp default current_timestamp on update current_timestamp)`;
-            
+
         //creating blogs table
         const createBlogsTable=
         `CREATE TABLE IF NOT EXISTS Blog(
@@ -105,8 +125,8 @@ function initializeTables() {
                 }else{
                     console.log('Request Table created successfully');
                 }
-          
-            }); 
+
+            });
             db.query(createAdminsTable,(err,result)=>{
                 if(err){
                     console.log(`Error creating Admin table: ${err}`);
@@ -133,14 +153,28 @@ function initializeTables() {
 
 };
 // Routes
+
+// app.get('/',(req,res)=>{
+//     res.sendFile(path.join(__dirname,'../index.html'));
+// });
 app.get('/requests',(req,res)=>{
     db.query('SELECT * FROM Request',(err,result)=>{
             if(err){
                 console.log(`Error fetching data: ${err}`);
-                res.status(500).send('Error fetching data');
+                return res.status(500).send('Error fetching data');
             }else{
                 //console.log("Data fetched successfully");
-                res.json(result);   
+                return res.json(result);
+            }
+    });
+});app.get('/blogssubmitted',(req,res)=>{
+    db.query('SELECT * FROM Request',(err,result)=>{
+            if(err){
+                console.log(`Error fetching data: ${err}`);
+                return res.status(500).send('Error fetching data');
+            }else{
+                //console.log("Data fetched successfully");
+                return res.json(result);
             }
     });
 });
@@ -150,14 +184,14 @@ app.get('/requests/count',(req,res)=>{
     db.query('SELECT COUNT(*) FROM Request',(err,result)=>{
             if(err){
                 console.log(`error counting data: ${err}`);
-                res.status(500).send('Error counting data');
+                return res.status(500).send('Error counting data');
             }else{
                 //console.log("Data counted successfully");
-                res.json(result);   
+                return res.json(result);
             }
     });
 });
-           
+
 //submiting requests
 app.post('/requests',(req,res)=>{
     const name=req.body.name;
@@ -167,10 +201,10 @@ app.post('/requests',(req,res)=>{
     db.query('INSERT INTO Request(Name,Email,Message,country) VALUES(?,?,?,?)',[name,email,message,country],(err,result)=>{
         if(err){
             console.log(`Error submitting data: ${err}`);
-            res.status(400).send(`Error submitting data ${err}`);
+            return res.status(400).send(`Error submitting data ${err}`);
         }else{
             //console.log("Data submitted successfully");
-            res.json(result);   
+            return res.json(result);
         }
     });
 });
@@ -182,19 +216,38 @@ app.post('/blogs',(req,res)=>{
     db.query('INSERT INTO Blog(title,image,description) VALUES(?,?,?)',[title,image,description],(err,result)=>{
         if(err){
             console.log(`Error submitting data: ${err}`);
-            res.status(400).send(`Error submitting data ${err}`);
+            return res.status(400).send(`Error submitting data ${err}`);
         }else{
             //console.log("Data submitted successfully");
-            res.json(result);   
+            return res.json(result);
         }
     });
 });
-          
+
 
 ///Register admin
-app.post('/register', async (req, res) => {
+app.post('/register',[
+    check("email").isEmail().withMessage("Please provide email"),
+    check("password").isLength({ min: 5 }).withMessage("Password must be at least 5 characters long"),
+    //custom check uniqueness
+    check("email").custom((value) => {
+        return new Promise((resolve, reject) => {
+            User.getUserByEmail(value, (err, user) => {
+                if (err) {
+                    reject(new Error('Server Error'));
+                }
+                if (user && user.length > 0) {
+                    reject(new Error('Email already in use'));
+                }
+                resolve(true);
+            });
+        });
+    })
+
+],
+     async (req, res) => {
     try {
-        const { name, email, password } = req.body; 
+        const { name, email, password } = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
         db.query(
             "INSERT INTO Admin(name, email, password) VALUES (?,?,?)",
@@ -202,14 +255,14 @@ app.post('/register', async (req, res) => {
             (err, result) => {
                 if (err) {
                     console.error(`Error registering admin: ${err}`);
-                    res.status(400).send('Error registering admin');
+                    return res.status(400).send('Error registering admin');
                 } else {
-                    res.status(201).send('Admin registered successfully');
+                    return res.status(201).send('Admin registered successfully');
                 }
             });
     } catch (err) {
         console.error(`Error in registration: ${err}`);
-        res.status(500).send('Internal Server Error');
+        return res.status(500).send('Internal Server Error');
     }
 });
 
@@ -218,6 +271,8 @@ app.post('/register', async (req, res) => {
 ///login admin
 app.post('/login', async (req, res) => {
     try {
+
+        
         const { email, password } = req.body;
         db.query(
             "SELECT * FROM Admin WHERE email = ?",
@@ -246,8 +301,17 @@ app.post('/login', async (req, res) => {
             });
     } catch (err) {
         console.error(`Error in login: ${err}`);
-        res.status(500).send('Internal Server Error');
+        return res.status(500).send('Internal Server Error');
     }
+});
+// Logout route
+app.post('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).send('Error logging out');
+        }
+        res.send('Logout successful');
+    });
 });
 
 // Graceful shutdown
@@ -269,6 +333,6 @@ app.listen(3002, () => {
 
 
 
-      
+
 
 
