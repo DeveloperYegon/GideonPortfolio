@@ -7,15 +7,15 @@ import App from '../App'
 
 
 function Blog() {
-    const { blogs } = useContext(BlogContext);
+    const { blogs , projects } = useContext(BlogContext);
     const {blogId}= useParams();
     // const blogId= params.blogId
     const blog = blogs.find((item) => item.id === Number((blogId)));
 
-    console.log('Blog ID:', blogId); //undefined
-    console.log(blog);//single blog
+    //console.log('Blog ID:', blogId); //undefined
+  //  console.log(blog);//single blog
     
-    console.log(blogs);//total blogs
+   // console.log(blogs);//total blogs
    
     
   return (
